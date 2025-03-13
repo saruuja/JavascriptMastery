@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>object</title>
+</head>
+
+<body>
+  <p id="demo"></p>
+  <script>
+    // object
+    let car = {
+      brand: "Toyota",
+      model: "Corolla",
+      year: 2020
+    }
+    console.log(car.brand); // Output: Toyota
+
+    //Add a new property
+    //Accessing dot notation
+    car.color = "Black";
+    // Accessing Bracket notation
+    car['generation'] = "5th";
+
+    //update a property
+    car['year'] = 2023;
+
+    //deleting a property
+    car['generation'] = undefined;
+    //or 
+    delete car['generation'];
+    // display the object
+    console.log(car);
+
+
+    //Create an object for a mobile phone.
+    let phone = {
+      brand: "Samsung",
+      model: "S21",
+      "[price ]": 1000,
+    }
+    // add a new property
+    phone['color'] = "Blue";
+    phone.generation = "5th";
+
+    // update a property
+    phone.color = "White";
+  // delete a property
+  delete phone.generation;
+
+  //OR
+  phone['generation'] = undefined;
+    console.log(phone);
+  </script>
+</body>
+
+</html>
