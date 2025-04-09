@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShoppingCart</title>
+</head>
+
+<body>
+  <script>
+    //ShoppingCart
+    function ShoppingCart() {
+  this.items = [];
+
+  // ✅ Add item to cart
+  this.addItem = function (name, price, quantity) {
+    this.items.push({ name, price, quantity });
+    console.log(`${name} has been added to the cart.`);
+  };
+
+  // ✅ Remove an item
+  this.removeItem = function (name) {
+    this.items = this.items.filter(item => item.name !== name);
+    console.log(`${name} removed from cart.`);
+  };
+
+  // ✅ Get total price
+  this.getTotal = function () {
+    let total = 0;
+    for (let item of this.items) {
+      total += item.price * item.quantity;
+    }
+    return total;
+  };
+
+  // ✅ Show all cart items
+  this.showCart = function () {
+    if (this.items.length === 0) {
+      console.log("🛒 Your cart is empty.");
+    } else {
+      console.log("🛍️ Your Shopping Cart:");
+      for (let cartItem of this.items) {
+        console.log(`- ${cartItem.quantity} x ${cartItem.name} ($${cartItem.price} each)`);
+      }
+    }
+  };
+
+  // ✅ Clear cart method
+  this.clearCart = function () {
+    this.items = [];
+    console.log("🛒 Your cart is now empty.");
+  };
+}
+
+// ✅ Testing the ShoppingCart
+let myCart = new ShoppingCart();
+
+myCart.addItem("Watermelon", 4.00, 5);
+myCart.addItem("Apple", 1.00, 2);
+myCart.addItem("Mango", 2.00, 1);
+myCart.addItem("Banana", 3.00, 2);
+myCart.addItem("Cherry", 1.00, 1);
+
+// ✅ Remove an item
+myCart.removeItem("Apple");
+
+// ✅ Show total price
+console.log(`Total Price: $${myCart.getTotal()}`);
+
+// ✅ Display all items before clearing cart
+myCart.showCart();
+
+// ✅ Clear the cart
+myCart.clearCart();
+
+// ✅ Display all items after clearing cart
+myCart.showCart();
+
+  </script>
+</body>
+
+</html>

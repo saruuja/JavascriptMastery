@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>object constructor</title>
+</head>
+<body>
+  <script>
+    // object constructor
+/*     function BankAccount(owner, balance) {
+  this.owner = owner;
+  this.balance = balance;
+}
+
+let customers = [
+  new BankAccount("Sara", 10000),
+  new BankAccount("Ali", 5000),
+  new BankAccount("Fatima", 2000),
+  new BankAccount("Ahmed", 7000)
+]; */
+
+
+ // console.log(customers);
+
+ //Adding Methods Inside a Constructor
+ function BankAccount(owner, balance) {
+  this.owner = owner;
+  this.balance = balance;
+
+  // Method to deposit money
+  this.deposit = function(amount) {
+    this.balance += amount;
+    console.log(`${this.owner} has deposited $${amount}. New balance is $${amount + this.balance}`);
+  };
+    // Method to withdraw money
+    this.withdraw = function(amount) {
+      if (amount > this.balance) {
+        console.log(`❌ Insufficient funds! ${this.owner} only has $${this.balance}`);
+      }
+      else{
+        this.balance -= amount;
+        console.log(`${this.owner} has withdrawn $${amount}. New balance is $${this.balance }`);
+      };
+ }
+
+   // Method to check balance
+   this.checkBalance = function() {
+        console.log(`${this.owner} has a balance of $${this.balance}`);
+    }
+    // Method to transfer money
+    this .transfer = function(amount, recipient) {// recrient is another bank account
+      if (amount > this.balance) {
+        console.log(`❌ Insufficient funds! your balance is $${this.balance }`);
+    }
+    else{
+   this.balance -= amount;
+   recipient.balance =   recipient.balance + amount;
+   console.log(`${this.owner} has transferred $${amount} to ${recipient.owner}.`);
+    }
+}
+}
+// // ✅ Creating an empty array to store customer accounts
+let customers = [];
+
+// ✅ Adding accounts using the constructor
+customers.push(new BankAccount("Sara", 10000)); 
+customers.push(new BankAccount("Ali", 5000));
+customers.push(new BankAccount("Fatima", 2000));
+customers.push(new BankAccount("Ahmed", 7000));
+
+// ✅ Accessing and using methods on each account
+customers[0].deposit(5000); // Sara deposits $5000
+customers[1].withdraw(2000); // Ali withdraws $2000
+customers[2].checkBalance(); // Fatima checks her balance
+customers[0].transfer(3000, customers[1]); // Sara transfers $3000 to Ali
+
+  </script>
+</body>
+</html>

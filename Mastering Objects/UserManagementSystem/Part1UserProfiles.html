@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> User Profiles</title>
+</head>
+<body>
+  <script>
+// 🔹 Part 1: User Profiles (Objects & Methods)
+let userProfile = {
+  name: "Sara",
+  email: "sara@gmail.com",
+  age: 25,
+  address: {
+    city: "Cairo",
+    country: "Egypt",
+  },
+  // Displaying user details.
+  getUserInfo: function () {
+    return `Name: ${this.name}, Email: ${this.email}, Age: ${this.age}, City: ${this.address.city}, Country: ${this.address.country}`;
+  },
+  // Update the user email
+  updateEmail: function (newEmail) {
+    this.email = newEmail;
+    return `Email updated successfully to: ${this.email}`;
+  }
+};
+
+// Test
+console.log(userProfile.getUserInfo()); // Before email update
+console.log(userProfile.updateEmail("sara.new@gmail.com")); // Updating email
+console.log(userProfile.getUserInfo()); // After email update
+
+
+  </script>
+</body>
+</html>

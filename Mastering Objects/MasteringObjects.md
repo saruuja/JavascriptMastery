@@ -63,3 +63,36 @@ console.log(book); // Output: { name: 'Maxamed', age: 54 }
 
 🔥 Objects are dynamic! You can modify them anytime.
 ```
+#  Object Methods
+🔥  What Are Object Methods?
+📌 A method is just a **function** inside an object.
+✔ It allows objects to have behavior (not just data).
+✔ The method can use the object’s properties using ``this.``
+🔥 Why Do We Need Object Methods?
+📌 Objects store data, but methods allow objects to perform actions!
+✔ Without methods, objects are just data holders.
+✔ With methods, objects can interact with their data and do useful things.
+
+🔥 Why Do We Need this?
+📌 The this keyword refers to the object that calls the method.
+✔ If we don’t use this, we can't access object properties inside methods.
+
+```js
+let cart = {
+  items: [
+    { name: "Laptop", price: 1000 },
+    { name: "Mouse", price: 50 }
+  ],
+  getTotal: function () {
+     let total = 0; // ✅ Start with total
+  // ✅ Loop through each item in the array
+  for (let i = 0; i < this.items.length; i++) {
+    let item = this.items[i]; // ✅ Get the current item
+    total = total + item.price; // ✅ Add the item price to total
+  }
+
+  return total; // ✅ Return the final total
+  /*   return this.items.reduce((total, item) => total + item.price, 0); */
+  }
+};
+```

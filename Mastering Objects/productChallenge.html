@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Management</title>
+</head>
+<body>
+
+  <!-- Product Details -->
+  <h3 id="productText"></h3>
+
+  <!-- Features List -->
+  <ul id="feature-list"></ul>
+
+  <!-- Manufacturer Details -->
+  <div id="manufacturerDetails"></div>
+
+  <!-- Discount Input -->
+  <input type="number" id="discountInput" placeholder="Enter discount">
+  <button id="applyDiscount">Apply Discount</button>
+
+  <!-- Restock Button -->
+  <button id="restockBtn">Restock +50</button>
+
+  <script>
+    // ✅ Product Object
+    let product = {
+      name: "Apple Watch",
+      price: 500,
+      category: "Electronics",
+      stock: 19, // Initially set to a low value for testing
+      features: ["GPS", "Water Resistant", "Heart Rate Monitoring"],
+      manufacturer: { name: "Apple", country: "USA" },
+
+      // ✅ Calculate discounted price
+      getDiscountedPrice: function (discount) {
+        return this.price - (this.price * discount / 100);
+      },
+
+      // ✅ Check stock status
+      checkStock: function (minStock) {
+        return this.stock < minStock ? "⚠️ Low stock!" : "✅ In Stock";
+      },
+
+      // ✅ Restock Method (Increases stock by a given amount)
+      restock: function (amount) {
+        this.stock += amount;
+      }
+    };
+
+    // ✅ Select elements
+    let productText = document.querySelector("#productText");
+    let featureList = document.querySelector("#feature-list");
+    let manufacturerDetails = document.querySelector("#manufacturerDetails");
+    let inputField = document.querySelector("#discountInput");
+    let applyDiscountBtn = document.querySelector("#applyDiscount");
+    let restockBtn = document.querySelector("#restockBtn");
+
+    // ✅ Function to Display Product Details
+    function updateProductDetails(discount = 0) {
+      let finalPrice = product.getDiscountedPrice(discount); // Apply discount if provided
+      let stockMessage = product.checkStock(20); // Warn if stock < 20
+
+      // Update product info
+      productText.innerHTML = `Product Name: ${product.name}, <br> 
+                               Price: $${finalPrice.toFixed(2)}, <br> 
+                               Category: ${product.category}, <br> 
+                               Stock: ${product.stock} (${stockMessage})`;
+
+      // Update feature list dynamically
+      featureList.innerHTML = `<h3>Product Features:</h3> <li>${product.features.join('</li><li>')}</li>`;
+
+      // Update manufacturer details
+      manufacturerDetails.innerHTML = `<h3>Manufacturer Details:</h3> 
+                                       <p>Name: ${product.manufacturer.name}, Country: ${product.manufacturer.country}</p>`;
+    }
+
+    // ✅ Load initial product details
+    updateProductDetails();
+
+    // ✅ Event listener for applying discount
+    applyDiscountBtn.addEventListener("click", function () {
+      let discountValue = parseFloat(inputField.value.trim());
+
+      // Validate input
+      if (isNaN(discountValue) || discountValue < 0 || discountValue > 100) {
+        alert("Please enter a valid discount (0-100)");
+        return;
+      }
+
+      // Update details with discount applied
+      updateProductDetails(discountValue);
+    });
+
+    // ✅ Event listener for restocking product
+    restockBtn.addEventListener("click", function () {
+      product.restock(50); // Increase stock by 50
+      updateProductDetails(); // Refresh UI
+    });
+
+  </script>
+</body>
+</html>

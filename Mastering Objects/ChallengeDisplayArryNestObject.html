@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Displaying an Array Inside an Object</title>
+</head>
+
+<body>
+  <script>
+    let student = {
+      name: 'Saam',
+      age: 28,
+      subjects: ['Islamic', 'Math', 'Geo', 'History', 'Bio', 'Chemistry', 'Physics',],
+      address: {
+        country: 'somalia',
+        city: 'Mogadisho'
+      }
+    }
+    //display
+ //   console.log(student)
+
+//📌 1️⃣ Displaying an Array Inside an Object
+    //✔ Method 1: Using .join() (Simple & Clean)
+  //  console.log(`Subjects: ${student.subjects}`);
+
+    //✔ Method 2: Using forEach() (More Control)
+   /*  console.log("Subjects:");
+    student.subjects.forEach((sub, index) => {
+      console.log(`${index + 1}. ${sub}`);
+    }); */
+    //✔ Method 3: Using for...of (Traditional Loop)
+/*     for(let key of student.subjects){
+      console.log('subject: ' + key)
+    } */
+//📌 2️⃣ Displaying an Object Inside an Object
+  //✔ Method 1: Using dot notation (Direct Access)
+ /*  console.log(`country: ${student.address.country}`)
+  console.log(`country: ${student.address.city}`) */
+  //✔ Method 2: Using Object.entries() (Looping Through Nested Objects)
+ /*  console.log('address:')
+  Object.entries(student.address).forEach(([key, value])=>{
+    console.log(`${key}: ${value}`);
+  }); */
+
+//📌 3️⃣ Displaying Everything (Object + Nested Object + Array)
+console.log(`stName: ${student.name}, stAge: ${student.age}`)
+
+console.log("subjects:")
+student.subjects.forEach(sub =>{
+  console.log(`- ${sub}`)
+})
+console.log('address:')
+for(let key in student.address){
+  console.log(` ${key}: ${student.address[key]}`);
+}
+  </script>
+</body>
+
+</html>

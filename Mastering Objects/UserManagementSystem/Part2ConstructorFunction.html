@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Constructor Function & Inheritance</title>
+</head>
+<body>
+  <script>
+   // 🔹 Part 2: Constructor Function (Creating Multiple Users)
+function User(name, email, role) {
+  this.name = name;
+  this.email = email;
+  this.role = role;
+
+  // Returns user info
+  this.displayUser = function() {
+    return `Name: ${this.name}, Email: ${this.email}, User Role: ${this.role}`;
+  };
+
+  // Updates the user role
+  this.changeRole = function(newRole) {
+    this.role = newRole;
+    return `Role updated to: ${this.role}`;
+  };
+}
+
+// Create users
+let user1 = new User("Saam Ali", "ali@example.com", "user");
+let user2 = new User("Jane Doe", "jane@example.com", "user");
+let user3 = new User("Alice", "alice@example.com", "user");
+
+// Test output
+console.log(user1.displayUser());         // View user1 info
+console.log(user1.changeRole("admin"));   // Change user1's role
+console.log(user1.displayUser());         // View updated info
+
+
+//🔥 Extra Tip (Optional for Practice):
+//You could store all users in an array:
+/* let allUsers = [user1, user2, user3];
+for( let user of allUsers ) {
+  console.log(user.displayUser());
+} */
+//or 
+/* allUsers.forEach(user => console.log(user.displayUser())); */
+
+//🔹 Part 3: Inheritance (Admin & Moderator Users)
+
+//// Admin inherits from User
+ class Admin extends User {
+  // delete user
+  deleteUser(user){
+    return ` User ${user.name} has been deleted.`;
+  }
+
+ }
+ // Create a class Moderator
+ class Moderator extends User {
+  muteUser(user){
+    return `User ${user.name} has been muted.`;
+ }
+}
+// Test output
+let admin = new Admin("Sara", "sara11@example.com", "admin");
+console.log(admin.deleteUser(user1));      // User Saam Ali has been deleted.
+console.log(admin.displayUser());          // Name: Sara, Email: sara11@example.com, User role: admin
+
+let mode = new Moderator("John", "john@example.com", "moderator");
+console.log(mode.muteUser(user1));         // User Saam Ali has been muted.
+console.log(mode.displayUser());           // Name: John, Email: john@example.com, User role: moderator
+
+
+/* 💡 Bonus Tip: You can store all roles and actions in a user management system array:
+javascript
+Copy code */
+ let users = [admin, mode, user1, user2, user3];
+ // Loop through each user and display their role and actions 
+ users.forEach(user => { 
+  console.log(user.displayUser());
+  })
+  </script>
+</body>
+</html>

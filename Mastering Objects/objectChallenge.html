@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>challenge</title>
+</head>
+
+<body>
+  <script>
+/* ✔ Create an object for a laptop with these properties:
+brand, model, RAM, price
+✔ Add a new property (isTouchScreen: true).
+✔ Update the RAM property to a new value.
+✔ Delete the isTouchScreen property. */
+
+let laptop ={
+  brand: 'HP',
+  model: 'Elite Book 840 G5',
+  RAM: 16,
+  isTouchScreen: true
+}
+// add
+laptop.price = 1000;
+//update 
+laptop.RAM = 32;
+//delete
+delete laptop.isTouchScreen;
+
+// display  object
+//console.log(laptop);
+// student
+
+let student = {
+  name: 'Xasan',
+  age: 20,
+  grade: 'B+',
+  subjects: ['Math', 'Science', 'History', 'English', 'Geography', 'Somali', 'Arabic']
+};
+
+// ✅ Add hobbies
+student.hobbies = ['reading', 'swimming', 'gaming', 'watching movies'];
+
+// ✅ Update grade
+student.grade = 'A';
+
+// ✅ Delete age
+delete student.age;
+//add contact info
+student.contact ={email: 'xasan@gmail.com', phone: '1234567890', address: {city: 'Mogadishu', country: 'Somalia'} };
+//📌 Next Challenge: Updating & Deleting Nested Data
+student.contact.phone = '+252 61 9876543';
+student.contact.address.street = "Wadajir Street";
+
+//delete hobbies
+delete student.hobbies;
+//Looping Through Object Properties
+/* for( let key in student){
+  console.log(`${key}: ${student[key]}`);
+}
+
+for (let key in student.contact.address) {
+  console.log(`${key}: ${student.contact.address[key]}`);
+} */
+
+
+/* 📌 Next Challenge: Accessing Nested Data 
+console.log(student.contact.email);
+console.log(student.contact.address.street);
+console.log(student.subjects[1])*/
+
+
+// ✅ Display object
+c//onsole.log(student);
+
+/* 
+i don't know loop that much i have only basic , also when i learn or take (JavaScript Object Methods and this Keyword, JavaScript Display Objects, JavaScript Object Constructors) and all things related by JavaScript Object.
+
+ */
+
+  </script>
+</body>
+
+</html>

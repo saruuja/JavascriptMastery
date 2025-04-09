@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Displaying Objects</title>
+</head>
+
+<body>
+  <table border="1" style=" width:25%; border-collapse:  collapse;">
+    <!-- <thead>
+      <tr>
+        <th>Name</th>
+        <th>price</th>
+        <th>category</th>
+        <th>stock</th>
+      </tr>
+    </thead>
+    <tbody id="productTable">
+    </tbody>
+  </table> -->
+    <h3 id="productText"></h3>
+    <ul id="feature-list"></ul>
+    <div id="manafuctureDetails"></div>
+    <input type="number" id="discountInput" placeholder="Enter discount">
+    <button id="applyDiscount">Apply Discount</button>
+    <script>
+      /*🔥 3️⃣Final Challenge for You!
+  ✔ Create an object called product with properties: name, price, category, stock. */
+
+      let product = {
+        name: 'Apple Watch',
+        price: 500,
+        category: 'Electronics',
+        stock: 100,
+        features: ['GPS', 'Water Resistant', 'Heart Rate Monitoring'],
+        manafucture: { name: 'Apple', country: 'USA' },
+
+        // Methode to calculate discounted price.
+        getDiscountedPrice: function (discount) {
+          return this.price - (this.price * discount / 100);
+        },
+        // ✅ Add checkStock() method to product object
+        checkStock: function (minStock) {
+          return this.stock < minStock ? "⚠️ Low stock!" : "✅ In Stock";
+        }
+
+      }
+      // display stcok
+      /*  //✔ Add an input field + button to apply a discount (use getDiscountedPrice()).
+       let inputField = document.querySelector('#discountInput')
+       let button = document.querySelector('#applyDiscount')
+       button.addEventListener('click', function () {
+         inputField.innerHTML = product.getDiscountedPrice(inputField.value.trim());
+         document.querySelector('#productText').innerHTML = `Product Name:${product.name}, <br> Price: $${product.getDiscountedPrice(inputField.value.trim())}, <br> Category: ${product.category}, <br> Stock: ${product.stock},`;
+ 
+       });
+ 
+  */
+
+      //✔ 4.2 Displaying Objects in a Table (For Reports, Dashboards)
+      /*  let row = `<tr> <td>${product.name}</td> <td>${product.price}</td> <td>${product.category}</td> <td>${product.stock}</td> </tr>`;
+       document.querySelector("#productTable").innerHTML += row; */
+      //✔ 4.3 Formatting Objects for an API ✅ When sending objects to a server or API, we format them as JSON.
+      /*  let jsonProduct = JSON.stringify(product);
+       console.log(jsonProduct); */
+
+
+
+
+
+
+
+
+
+
+
+
+      //📌 1️⃣ Basic Way: Using console.log()
+
+      //console.log(product)
+
+      //📌 2️⃣ Extracting Object Properties Dynamically ✔ Using console.log() with String Interpolation
+      console.log(`Product Name: ${product.name}\nPrice: ${product.price}\nCategory: ${product.category}\nStock: ${product.stock}`);
+      // or Instead of printing the whole object, we can display each property manually.
+      // console.log(` Product Name: ${product.name}`);
+      // console.log(` Price: ${product.price}`);
+      // console.log(` Category: ${product.category}`);
+      // console.log(` Stock: ${product.stock}`);
+
+      //📌 3️⃣ Best Practices: Looping Over Objects
+      //✔ 3.1 for...in Loop
+      for (let key in product) {
+        console.log(`${key}: ${product[key]}`);
+      }
+      //✔ 3.2 Object.keys() Method
+      console.log(Object.keys(product));
+      //✔ 3.3 Object.values() Method
+      console.log(Object.values(product));
+      //✔ 3.4 Object.entries() → Get Key-Value Pairs
+      console.log(Object.entries(product));
+
+    </script>
+
+
+    <!-- 
+ //🔥 1️⃣Challenge for You!
+    /* ✔ Create an object called book with properties: title, author, year. */
+    let book = {
+      title: 'Good Dad Bad Dad',
+      author: 'David George',
+      year: 2007
+    }
+    // display objects
+    // console.log(book)
+    // console.log(Object.keys(book))
+    //   console.log(Object.values(book))
+    //  console.log(Object.entries(book))
+   /*  for (let key in book) {
+      console.log(`${key}: ${book[key]}`);
+    } */
+
+    /*🔥 2️⃣Challenge for You!
+   ✔ Create an object called car with properties: brand, model, year, color. */
+
+    let car = {
+      brand: "Toyota",
+      model: "Corolla",
+      year: 2023,
+      color: 'Black' 
+    }
+    //1️ for...in
+ /*    for(let key in car){
+      console.log(`${key}: ${car[key]}`);
+    } */
+    //2️ Object.keys()
+   /*  Object.keys(car).forEach(key =>{
+      console.log(`${key}: ${car[key]}`);
+    }) */
+    //3️ Object.values()
+   // console.log(Object.values(car))
+    //4️ Object.entries()
+ /*    Object.entries(car).forEach(([key , value])=>{
+      console.log(`${key}: ${value}`)
+    }) */
+
+ -->
+    <script src="DisplayingObjectsRealWorld.js"></script>
+</body>
+
+</html>

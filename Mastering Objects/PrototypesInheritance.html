@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prototypes Inheritance</title>
+</head>
+<body>
+  <script>
+    class User {
+      constructor(name, email){
+        this.name = name;
+        this.email = email;
+      }
+      displayInfo(){
+        return `Name: ${this.name}, Email: ${this.email}`;
+      }
+    } 
+  
+    // Admin inherits from User
+    class Admin extends User {
+      deleteUser(user){
+        return `User ${user.name} has been deleted.`; // Corrected: `user.name`
+      }
+    }
+  
+    // Moderator inherits from User
+    class Moderator extends User {
+      muteUser(user){
+        return `User ${user.name} has been muted.`; // Corrected: `user.name`
+      }
+    }
+  
+    // Test User Management System
+    let user = new User("John Doe", "johndoe@example.com");
+    console.log(user.displayInfo());
+  
+    let admin = new Admin("Mo", "modese@example.com");
+    console.log(admin.deleteUser(user)); // Now correctly deletes John Doe
+  
+    let moderator = new Moderator("Saam", "saame@example.com");
+    console.log(moderator.muteUser(user)); // Now correctly mutes John Doe
+  </script>
+  
+</body>
+</html>

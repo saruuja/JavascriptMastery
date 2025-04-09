@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>object Methods</title>
+</head>
+
+<body>
+  <script>
+    // 💡 Example: Method
+    let person = {
+      name: 'Anas',
+      age: 25,
+      address: {
+        street: 'km4 street',
+        city: 'mogadisho',
+        country: 'somalia',
+      },
+      introduce: function () {
+        return `Hi my name is ${this.name}, I am ${this.age} years old, my address is: ${this.address.street},  ${this.address.city}, ${this.address.country}`;
+      }
+    };
+    console.log(person.introduce());
+
+    //✔ E-Commerce Site (e.g., Amazon)
+    //👉 A cart object that calculates the total price.
+    let cart = {
+      items: [
+        { name: 'Apple', price: 1.00 },
+        { name: 'Banana', price: 0.50 },
+        { name: 'Orange', price: 1.50 },
+        { name: 'Mango', price: 2.00 },
+      ],
+      getTotal: function () {
+
+        let total = 0;
+        for (let item of this.items) {
+          total = total + item.price;
+        }
+        return total;
+      }
+
+    }
+    // 👉 Add a new item to the cart
+    cart.items.push({ name: 'Grapes', price: 3.00 });
+    // total pric
+    console.log(`$${cart.getTotal()}`);
+    /* shorthand
+     return this.items.reduce((total, item) => total + item.price, 0); */
+
+    let bankAccount = {
+      owner: 'Sara',
+      balance: 0,
+
+      // ✅ The transactions array starts empty but gets updated later
+      transactions: [],
+
+      // ✅ Deposit money
+      deposit: function (amount) {
+        this.balance += amount;
+        this.transactions.push(`Deposited: $${amount}`); // ✅ Store in transactions
+        return `Deposite balance: $${this.balance}`;
+      },
+
+      // ✅ Withdraw money
+      withdraw: function (amount) {
+        // check if there is enough money 
+        if (amount > this.balance) {
+          return 'Insufficient funds. Your balance is $' + this.balance;
+        }
+        this.balance -= amount;
+        this.transactions.push(`Withdrawn: $${amount}`); // ✅ Store in transactions
+        return ` Withdrawn balance: $${this.balance}`;
+      },
+
+      // ✅ Show balance
+      checkBalance: function () {
+        return `Your balance is $${this.balance}`;
+      },
+
+      // ✅ Show transaction history
+      showTransactions: function () {
+        if (this.transactions.length === 0) { // ✅ Check if array is empty
+          console.log("No transactions yet.");
+        } else {
+          console.log(" Transactions:");
+          for (let transaction of this.transactions) {
+            console.log(`- ${transaction}`);
+          }
+        }
+      },
+      //adding a new method clearTransactions() that removes all transactions.
+      clearTransactions: function () {
+    this.transactions = []; // ✅ Clears the transaction history
+    console.log("All transactions have been cleared!");
+  
+  },
+  undoLastTransaction: function () {
+  if (this.transactions.length === 0) { // ✅ If no transactions exist
+    return "No transactions to undo!";
+  } else {
+    let removedTransaction = this.transactions.pop(); // ✅ Remove last transaction
+    return `Undo successful: ${removedTransaction}`;
+  }
+}
+
+};
+
+// ✅ Testing the Code
+console.log(bankAccount.deposit(5000)); 
+console.log(bankAccount.withdraw(2000)); 
+console.log(bankAccount.checkBalance()); 
+bankAccount.showTransactions(); 
+
+// ✅ Undo last transaction
+console.log(bankAccount.undoLastTransaction());
+bankAccount.showTransactions(); // Should show only one transaction now
+
+  </script>
+</body>
+
+</html>
