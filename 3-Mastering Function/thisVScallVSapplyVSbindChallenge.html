@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🚀 3 Challenges — call(), apply(), and bind()</title>
+</head>
+
+<body>
+  <script>
+    //✅ Challenge 1: call() — Restaurant Order System.
+    function takeOrder(dish) {
+      //console.log(`Order received at ${this.branch} branch for ${dish}.`);
+    }
+
+    const downtownRestaurant = { branch: "Downtown" };
+    const airportRestaurant  = { branch: "Airport" };
+
+    // call()
+    takeOrder.call(downtownRestaurant, "🍕 Pizza");
+    takeOrder.call(airportRestaurant,  "🍚 Rice and 🍹 orange juice");
+
+    //✅ Challenge 2: apply() — Event Guest Info
+    function welcomeGuest( city, seatNumber){
+     // console.log(`Welcome, ${this.name}! You are seated at ${seatNumber} in ${city}.`);
+    };
+
+    // object 7 guests 
+    const guests = [
+      { name: "John"},
+      { name: "Ali"},
+      { name: "Sara"},
+      {name: "Rahul"},
+      { name: "karan"},
+      { name: "Khalid"},
+      { name: "Sacdiya"}
+    ];
+    //
+    // apply()
+    welcomeGuest.apply(guests[0], ["New York", "A1"]);
+    welcomeGuest.apply(guests[1], ["Qatar", "B2"]);
+    welcomeGuest.apply(guests[2], ["Paris", "C3"]);
+    welcomeGuest.apply(guests[3], ["Dubai", " D4"]);
+
+//Challenge 3: bind() — Button Click Simulator.
+let accountUser = {username: "Saruja",
+
+showDashboard: function(){
+ // console.log(`Opening dashboard for ${this.username}.`);
+}
+  };
+
+  // save the function to a variable
+const show = accountUser.showDashboard;
+show(); // ❌ undefined (because no object is calling it)
+
+const boundDashboard = accountUser.showDashboard.bind(accountUser);
+boundDashboard(); 
+
+  </script>
+</body>
+
+</html>

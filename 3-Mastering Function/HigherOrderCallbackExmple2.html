@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>✅ Example 2: Currency Converter</title>
+</head>
+<body>
+  <script>
+  //  🎯 Goal:Convert money to different currencies using custom rates.
+
+function convertCurrency(amount, convertFn) {
+  return convertFn(amount); // callback
+}
+//Custom conversion functions
+
+function toUSD(amount) {
+  return amount * 0.0091;
+}
+
+function toEuro(amount) {
+  return amount * 0.0085;
+}
+
+console.log(convertCurrency(1000, toUSD));  // 9.1
+console.log(convertCurrency(1000, toEuro)); // 8.5
+//✅ convertCurrency is the higher-order function
+//✅ toUSD and toEuro are callbacks
+  </script>
+</body>
+</html>

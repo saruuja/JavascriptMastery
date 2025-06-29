@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>✅ Example 3: Custom Greeting System</title>
+</head>
+<body>
+  <script>
+   // 🎯 Goal:Greet people in different ways.
+
+function greet(name, styleFn) {
+  return styleFn(name); // callback
+}
+//Different styles of greetings:
+
+
+function casual(name) {
+  return `Hey, ${name}!`;
+}
+
+function formal(name) {
+  return `Good day, Mr./Ms. ${name}.`;
+}
+
+console.log(greet("Maxamad", casual)); // Hey, Maxamad!
+console.log(greet("Maxamad", formal)); // Good day, Mr./Ms. Maxamad.
+//✅ greet() is the higher-order function
+//✅ casual() and formal() are callbacks
+  </script>
+</body>
+</html>

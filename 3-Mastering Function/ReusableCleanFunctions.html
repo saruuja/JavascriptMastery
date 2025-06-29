@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reusable Clean Functions</title>
+</head>
+<body>
+  <script>
+    //📦 Real-World Example
+//❌ Bad:
+function sendDiscountMessage(){
+  let user = 'John';
+  let discount = 10;
+  console.log(` Hello, ${user}! You have a ${discount}% of discount.`);
+};
+// call
+sendDiscountMessage();
+// ✅ Good:
+function createDiscountMessage(user , discount){
+  return `Hello, ${user}! Your discount is ${discount}%.`;
+}
+
+// Use Now 
+console.log(createDiscountMessage('Shama', 10));
+console.log( createDiscountMessage('Axmed', 30) );
+  </script>
+</body>
+</html>

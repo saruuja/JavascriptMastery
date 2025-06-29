@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🍽️ Recipes / Kitchen</title>
+</head>
+
+<body>
+  <script>
+
+    //**Challenge:** 🍽️ Recipes / Kitchen
+    //Create an array of recipe objects with name and cookingTime.
+    let recipes = [
+      { name: "Spaghetti Bolognese", cookingTime: 30 },
+      { name: "Chicken Fajitas", cookingTime: 20 },
+      { name: "Grilled Salmon", cookingTime: 15 },
+      { name: "pasta with tomato sauce", cookingTime: 25 },
+      { name: "chicken stir-fry", cookingTime: 18 },
+      { name: "panCakes", cookingTime: 10 },
+      { name: "chicken and rice", cookingTime: 35 },
+      { name: "Lasagna", cookingTime: "1 hour 30 minutes"},
+      {name: "Roast Chicken with Root Vegetables", cookingTime: "1 hour 15 minutes"},
+      {name: "Baked Cod with Lemon and Herbs", cookingTime: "45 minutes "},
+    ]
+
+    //  return all recipes that take less than 30 minutes.
+    let lessThan30 = recipes.filter(recipe => {
+      return recipe.cookingTime < 30
+      })
+      //Dsiplay 
+      console.log(" 🍽️ Recipes that can be cooked in less than 30 minutes")
+      lessThan30.forEach(rp =>{
+        console.log(`Recipes: ${rp.name}, Cooking Time - ${rp.cookingTime} ~ minutes`)
+      })
+      // the recipes  names.
+
+      let displayAllName = recipes.map(function( Recipe, index) {
+        console.log( `${index + 1}. ${Recipe.name}`);
+      })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>✅ Topic 11: Practical Scenarios for Using localStorage</title>
+</head>
+<body>
+<script>
+  /*1. 🌗 Save User Theme Preference (Dark Mode)*/
+  //save choice
+  localStorage.setItem("theme", " light");
+  //get choice
+  const theme = localStorage.getItem("theme");
+  if (theme === "dark"){
+    document.body.classList.add("dark");
+  }//✅ Used in real sites to keep user's theme even after reload.
+
+  /*2. 📝 Persist To-Do List Items*/
+
+  let toDoList = ["Buy milk", "Walk the dog", "Do laundry"];
+
+   localStorage.setItem("list", JSON.stringify(toDoList));
+
+   // get list
+   let loaded = JSON.parse(localStorage.getItem("list"));
+
+   console.log(loaded);//✅ Used in task managers, shopping carts, etc.
+
+   /*3. ✍️ Auto-Save Form Input*/
+   // On typing
+input.addEventListener("input", () => {
+  localStorage.setItem("email", input.value);
+});
+
+// On page load
+input.value = localStorage.getItem("email") || "";//No more losing your form data after refresh!
+
+
+
+/*4. 🎮 Save Game State or Score*/
+
+localStorage.setItem("highScore", 9999);
+let score = parseInt(localStorage.getItem("highScore"));//✅ Used in browser games and quizzes.
+
+/*5. ⚙️ Store App Settings or Preferences*/
+
+localStorage.setItem("language", "en");
+localStorage.setItem("fontSize", "18px");
+//✅ Customize layout, language, and other UI preferences.
+
+
+/* 
+🧠 Summary:
+Feature	Benefit
+Theme saving	Personalized UX
+To-do persistence	User keeps their tasks
+Form auto-fill	Better usability
+Game state	Fun + memory
+App preferences	Cleaner UX, no need to ask again
+
+*/
+</script>
+</body>
+</html>

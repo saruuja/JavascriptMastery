@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Form Handling</title>
+</head>
+<style>
+  label,
+  textarea {
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .success {
+    color: green;
+    background: black;
+    padding:  1rem;
+  }
+
+  .error {
+    color: red;
+    background: #000;
+    padding: 10px 20px;
+  }
+</style>
+
+<body>
+  <!-- Example 1, Imagine a simple newsletter form: -->
+  <form id="newsletterForm">
+    <input type="text" id="nameInput" placeholder="Enter your name" />
+    <button type="submit">Subscribe</button>
+  </form>
+
+  <p id="result"></p>
+  <!-- challenge -->
+
+  <form action="" id="form">
+    <label for="name">Name:
+      <input type="text" placeholder="Name" name="name" id="nameField" required>
+    </label>
+    <label for="age">Age:
+      <input type="number" placeholder="Enter your Age" name="name" size="3" id="ageField">
+    </label>
+    <label for="mail">Email
+      <input type="text" placeholder="Email address" name="mail" id="mailField" >
+    </label>
+    <label for="feedback">Type your Feedback:
+      <textarea name="feedback" id="txtFeedback" placeholder="any feedback here..." rows="4" cols="30"
+        id="textArea"></textarea >
+    </label>
+
+    <label for="subscribe">
+      <input type="checkbox" checked="checked" name="subscribe" id="termCheck"> Daily Newsletter
+    </label>
+    <label for="submit-btn"></label>
+    <input type="submit" name="submit-btn" value="Subscribe">
+  </form>
+
+  <p id="congrates"></p>
+
+  <script src="4-FormHandling.js"></script>
+</body>
+
+</html>

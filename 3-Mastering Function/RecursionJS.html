@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recursion</title>
+</head>
+
+<body>
+  <script>
+    //✅ Step 1: A Normal Function that Calls Another Function.
+    function step1() {
+      console.log("Step 1 is done");
+      step2();
+    }
+    function step2() {
+      console.log("Step 2 is done");
+    }
+    // call step1 function
+    step1();
+
+    //✅ Step 2: A Function That Calls Itself Once
+    function simpleRecursion(number) {
+      console.log(`Number is: ${number}`);
+      if (number === 1)
+        return;
+      simpleRecursion(number - 1);
+
+    }
+    // call simpleRecursion function
+  //  simpleRecursion(5);
+
+    // ✅ Step 3: Russian Doll loop
+    function openDoll(level) {
+      if (level === 0) {
+        console.log("No more dolls to open");
+        return;
+      }
+      console.log(" Opening doll level:", level);
+      openDoll(level - 1);
+    }
+    // call openDoll function
+    openDoll(1);
+    // while loop
+    function openDollLoop(level) {
+      while (level > 0) {
+        console.log("Opening doll level:", level);
+        level--;
+      }
+      console.log("No more dolls to open");
+    }
+
+    // Call the loop function
+  //  openDollLoop(5);
+
+    //✅ 1. Small Practice Challenge — Recursion Warmup.
+function sumTo(n) {
+  if (n === 1) {
+    return 1; // base case
+  }
+  return n + sumTo(n - 1); // recursive case
+}
+
+// Use console.log outside to display result
+console.log("Total Sum:", sumTo(5)); // Total Sum: 55
+
+  </script>
+</body>
+
+</html>

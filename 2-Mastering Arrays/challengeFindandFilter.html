@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🔥 Mini Challenge: Student Search System
+    js
+    Copy code</title>
+</head>
+<body>
+  <script>
+    // Define the students array
+    let students = [
+  { name: "Ali", score: 85},
+  { name: "Zahra", score: 92},
+  { name: "Ali", score: 76},
+  { name: "Zahuur", score: 90},
+  { name: "Ahmed", score: 60},
+  { name: "Ali", score: 98}
+];
+//Find only the first student named "Ali".
+let firstAli = students.find(student => student.name === "Ali");
+console.log(firstAli);
+//Find all students with name Ali.
+console.log(`all students with name "Ali"`)
+let allAli = students.filter(student => student.name === "Ali")
+for(let name of allAli){
+ console.log(name);
+}
+ //all students with score ≥ 80
+ console.log(`all students with score ≥ 80`)
+ let allScore = students.filter(student => student.score >= 80)
+ let sortAllScore = allScore.sort((a,b) => b.score - a.score)
+ for(let above of sortAllScore){
+  console.log(above);
+ };
+
+  </script>
+</body>
+</html>

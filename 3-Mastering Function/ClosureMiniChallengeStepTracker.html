@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🧪 Final Closure Mini Challenge: “Step Tracker”</title>
+</head>
+<body>
+  <script>
+    function createStepTracker(){
+      let steps = 0; // Initialize steps to 0.
+      return{
+        takeStep(amt = 1){ // Take a step. Default amt is 1.
+          steps += amt; // Add amt to steps.
+
+         return steps;
+        },
+        getSteps: function(){
+          return steps; // Return the total steps taken.
+        },
+        resetSteps(){
+         return steps = 0; // Reset the steps to 0.
+        }
+        }
+      };
+
+      // 
+      const tracker = createStepTracker();
+      tracker.takeStep();
+      tracker.takeStep(20);
+      console.log(` Total steps: ${tracker.getSteps()}`);
+
+      // reset the tracker
+      tracker.resetSteps();
+      console.log(` Total steps after reset: ${tracker.getSteps()}`);
+    //try to access the tracker object
+    console.log(tracker.steps);
+  </script>
+</body>
+</html>

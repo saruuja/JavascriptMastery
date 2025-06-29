@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>✅ Example 1: Grading System</title>
+</head>
+<body>
+  <script>
+    // ✅ This function is a Higher-Order Function because it accepts another function as an argument
+function gradeStudent(score, gradingRule) {
+  // Here, we run the function passed in (gradingRule), and give it the score
+  // This lets the external rule decide how the grade is calculated
+  return gradingRule(score);
+}
+
+// ✅ This is a callback function that contains grading logic
+// It will be passed into gradeStudent
+function passOrFail(score) {
+  return score >= 50 ? "Pass" : "Fail";
+}
+
+// ✅ This is another callback function with a different rule (letter grading)
+function letterGrade(score) {
+  if (score >= 90) return "A";
+  if (score >= 80) return "B";
+  if (score >= 70) return "C";
+  if (score >= 60) return "D";
+  return "F";
+}
+
+// ✅ This is a more strict rule (only A or F)
+function strictGrade(score) {
+  return score >= 85 ? "A" : "F";
+}
+
+// 🎯 Now we call gradeStudent with different rules
+
+console.log(gradeStudent(85, passOrFail));   // Output: Pass
+// → gradingRule becomes passOrFail
+// → passOrFail(85) returns "Pass"
+
+console.log(gradeStudent(85, letterGrade));  // Output: B
+// → gradingRule becomes letterGrade
+// → letterGrade(85) returns "B"
+
+console.log(gradeStudent(85, strictGrade));  // Output: A
+// → gradingRule becomes strictGrade
+// → strictGrade(85) returns "A"
+
+  </script>
+</body>
+</html>

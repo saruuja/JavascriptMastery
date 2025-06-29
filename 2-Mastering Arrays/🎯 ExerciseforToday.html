@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎯 Exercise for Today</title>
+</head>
+<body>
+  <script>
+    //✅ Loop through this array:
+    let colors = ["Red", "Blue", "Green", "Yellow", "Purple"];
+
+    //use for
+    for (let i = 0; i < colors.length; i++) {
+      console.log(`${i +1} ${colors[i]}`);
+    }
+    // use for...of
+    for (let color of colors) {
+      console.log('color:',color);
+    }
+    // use forEach
+    colors.forEach(function(color, index) {
+    console.log(`${index +1}. ${color}`);
+    })
+  </script>
+</body>
+</html>

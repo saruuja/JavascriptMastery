@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>✅ 3: Exercises (higher-order functions and callbacks) </title>
+</head>
+<body>
+  <script>
+    //✅ Exercise 1: Area Calculator
+    function calculateArea(value, shapeFn){
+      return shapeFn(value);
+    };
+
+    // squareArea.
+    function squareArea(value) {
+      return value * value;
+    };
+    // circleArea.
+    function circleArea(value) {
+      
+      return Math.round(Math.PI * value * value * 100) / 100;
+    };
+    // Run the area calculator with the squareArea function.
+    console.log(calculateArea(5, squareArea)); // Output: 25
+    // Run the area calculator with the circleArea function.
+    console.log(calculateArea( 5, circleArea)); // Output: 78.53981633974483
+
+    //✅ Exercise 2: Text Transformer
+    function transformText(text, transformerFn) {
+      return transformerFn(text);
+    };
+    // toUppercase.
+    function toUppercase(text) {
+      return text.toUpperCase();
+      //Or only first letter to uppercase
+     // return text.charAt(0).toUpperCase() + text.slice(1);
+    };
+    // addExclamationMark.
+    function addExclamationMark(text) {
+      return `${text}! `;
+    }
+
+    // call the transformText function.
+    console.log(transformText("hello", toUppercase)); // Output: HELLO
+    console.log(transformText("hello", addExclamationMark)); // Output: hello!
+
+    //✅ Exercise 3: Score Multiplier
+/* 
+
+✅ 1. Version using for...of
+js
+Copy
+Edit
+function modifyScores(scoresArray, modifyFn) {
+  let result = []; // this will store the modified scores
+
+  for (let score of scoresArray) {
+    result.push(modifyFn(score)); // apply the function to each score
+  }
+
+  return result;
+}
+🧠 Explanation:
+for...of loops through each score in the array
+
+modifyFn(score) runs the rule (like double or halve)
+
+Each result is pushed to the new array result
+
+✅ 2. Version using .forEach()
+
+function modifyScores(scoresArray, modifyFn) {
+  let result = [];
+
+  scoresArray.forEach(function(score) {
+    result.push(modifyFn(score)); // apply the function and store the result
+  })
+
+  return result;
+}
+🧠 Explanation:
+.forEach() runs the function on each item in the array
+
+Inside, you apply modifyFn(score)
+
+Each result is pushed to result
+ */
+
+    function modifyScores(scoresArray, modifyFn) {
+      return scoresArray.map(modifyFn);
+    };
+    // doubleScore.
+    function doubleScore(score) {
+      return score * 2;
+    };
+    //halveScore
+    function halveScore(score) {
+      return score / 2;
+    };
+
+    // call the modifyScores function.
+    console.log(modifyScores([1, 2, 3], doubleScore)); // Output: [2, 4, 6]
+    console.log(modifyScores([1, 2, 3], halveScore)); // Output: [0.5, 1, 1.5]
+
+  </script>
+</body>
+</html>

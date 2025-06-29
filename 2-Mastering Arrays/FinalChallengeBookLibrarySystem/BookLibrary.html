@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Library System </title>
+</head>
+
+<body>
+
+  <script>
+    //🚀 Final Challenge: Book Library System.
+    let booksLibrary = [
+      {
+        title: "islam between east and west",
+        author: "Alija Izetbegović",
+        year: 1980,
+        genre: ["religious", " philosophy", " political thought"],
+        rating: 4.8
+      },
+      {
+        title: "7 Habits of Highly Effective People",
+        author: "Stephen Covey",
+        year: 1989,
+        genre: ["Self-Help", " Personal Development"],
+        rating: 4.8
+      },
+      {
+        title: "rich dad poor dad",
+        author: "Robert Kiyosaki",
+        year: 1997,
+        genre: ["Self-help", " Finance"],
+        rating: 4.7
+      },
+      {
+        title: "Our Youth and Social Media",
+        author: "Dr. Ali Al-Khateeb",
+        year: 2019,
+        genre: ["Social Media"],
+        rating: 4.9
+      },
+      {
+        title: "Miracle Morning",
+        author: "Hal Elrod",
+        year: 2012,
+        genre: ["Self-Help"],
+        rating: 4.6
+      }
+    ];
+
+    // 1. Display all book titles,
+    console.log(`#️⃣ 📑 All Book Titles: `);
+    let bookTitles = booksLibrary.map(book => book.title[0].toUpperCase() + book.title.slice(1).toLocaleLowerCase());
+    bookTitles.forEach(function (name, index) {
+      console.log(`${index + 1}: ${name}`);
+    });
+
+    // 2. Books published after 2010
+    console.log(`📚  Books published after 2010:`);
+    let booksAfter2010 = booksLibrary.filter(book => book.year > 2010);
+    booksAfter2010.forEach(function (book, index) {
+      console.log(`${index + 1}. ${book.title} Published by - ${book.year}`);
+    });
+
+    // 3. Find the first book with a rating of 5
+    let rating5 = booksLibrary.find(rateFive => rateFive.rating === 5);
+    if (rating5) {
+      console.log(`\n🌟 First Book with a Rating of 5: ${perfectRatedBook.title}`);
+    } else {
+      console.log("\n🌟 No book with a rating of exactly 5.");
+    }
+    // 4. Calculate the average rating using reduce()
+    let totalRating = booksLibrary.reduce((sum, book) => {
+      return sum + book.rating
+    }, 0);
+    // avrage
+    let averageRating = Math.round((totalRating / booksLibrary.length) * 100) / 100;
+    console.log(`\n📊 Average Rating: ${averageRating}`);// since toFixed() is converting number to string so we use Math.round() to get integer and then divide by 100 to get decimal value
+
+
+    // 5. Sort books by year (newest to oldest)
+    let sortedByYear = [...booksLibrary].sort((a, b) => b.year - a.year);
+
+    console.log(`  📕   Books sorted by year (newest to oldest):`);
+    sortedByYear.forEach(function (book, index) {
+      console.log(`${index + 1}. ${book.title} Published by - ${book.year}`);
+    });
+
+    // 6. Display genres using flat() or nested loop 
+    console.log(`- Book title 📚 and their respective genres:`);
+    booksLibrary.forEach(function (geners, index) {
+      console.log(` ${index + 1}. ${geners.title} - "${geners.genre}"`);
+    })
+
+    // 7. Use destructuring to extract the title and author from one book.
+    let { title, author } = booksLibrary[0];
+    console.log(`📖 Title: ${title.toUpperCase()} , Author: ${author}`);
+
+    //BONUS Creat function shows "Top rated books".
+    function topRatedBooks(books, minRating = 4.8) {
+      return books
+        .filter(book => book.rating >= minRating)
+        .sort((a, b) => b.rating - a.rating); // highest-rated first
+    }
+
+    let  topBooks = topRatedBooks(booksLibrary);
+  console.log(`\n🏆 Top Rated Books (Rating ≥ 4.8):`);
+  topBooks.forEach((book, index) => {
+    console.log(`${index + 1}. ${book.title} - Rating: ${book.rating}`);
+  });
+
+
+  </script>
+</body>
+
+</html>

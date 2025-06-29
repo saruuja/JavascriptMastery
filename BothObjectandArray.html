@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Object & Array</title>
+</head>
+
+<body>
+  <script>
+    /*  let users ={
+      names: [{name: "Ali",
+        age:22},
+        {name: "Zahra",
+        age:24},{name: "Axmed",
+        age:21},
+     ],
+ 
+    greeting: function(){
+    return `Hello, ${this.users.name}`
+    }
+   }
+   console.log(users.greeting()); */
+
+    /* 
+    Good question!
+    You're very close, but let’s slow down and fix it together step-by-step: 🚀
+    
+    ❗ First Problem in Your Code:
+    
+    return `Hello, ${this.users.name}`
+    
+    this.users → is wrong because inside the object users, the names are stored directly in a property called names, not inside users.names again.
+    
+    Also, names is an array, not a single object — you need to loop through it!
+    
+    ✅ How to Correct It:
+    You want to loop through all the names and return a greeting for each person.
+    
+    Here’s the correct idea:
+    
+    */
+    // Array inside object
+    let users = {
+      names: [
+        /* { name: "Ali", age: 22 },
+        { name: "Zahra", age: 24 },
+        { name: "Axmed", age: 21 }, */
+      ],
+
+      greeting: function () {
+        // Use map() to greet each user
+        return this.names.map(user => `Hello, ${user.name}!`);
+      }
+    }
+    /* 🌟 BONUS
+    If you want to print them nicely in the console:
+    
+    users.greeting().forEach(greet => console.log(greet)); 
+    OR*/
+
+    for (let greet of users.greeting()) {
+      console.log(greet)
+    }
+
+    /* 📝 Summary:
+    Method	Purpose	Example
+    for...of loop	Walk through array manually	Good for flexibility
+    .forEach() method	Apply a function to each item	Good for cleaner, shorter code
+    ✅ Both are correct and good.
+    ✅ You can use whichever you feel more comfortable with.
+    ✅ In professional code, both styles are used depending on the situation. */
+
+    //Object inside Array
+    let userInfo = [
+
+      /*  { name: "Sara", age: 22 },
+       { name: "Zahuur", age: 24 },
+       { name: "Khalid", age: 21 }, */
+    ]
+    /* userInfo.forEach(function(greet){
+    console.log(`Hello, ${greet.name}`);
+    }) */
+    // filter is a same()
+    userInfo.map(userName => {
+    //  console.log(`Welcome, ${userName.name}`);
+    })
+
+let student = {
+  name: "Khalid",
+  showName: function() {
+    console.log(`Name: ${this.name}`);
+  }
+};
+let show = student.showName.bind(student);
+show();
+ /* How to convert string into  with function? */
+ function camelCase(str) {
+  let words = str.split(' ');
+  words[1] = words[1].charAt(0).toUpperCase() + words[1].slice(1).toLowerCase();
+  return words.join(' ');
+ }
+
+ console.log(camelCase("hello hello how are you doing"));
+
+  </script>
+
+</body>
+
+</html>
+

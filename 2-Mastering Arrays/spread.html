@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>spread Oprator</title>
+</head>
+<body>
+  <script>
+    //1️⃣ Create Two Arrays.
+    let storeA = ["Phone", "Laptop", "Tablet"];
+    let storeB = ["smartWatch", "Tv", "Headphone"];
+//2️⃣ Merge both.
+    let allGadgets = [...storeA, ...storeB];
+    console.log(allGadgets);
+    // 3️⃣ Copy allGadgets into a new.
+    let backupGadgets = [...allGadgets];
+    backupGadgets.push("Camera");
+    console.log(backupGadgets);
+
+    // 4️⃣ Convert a string (e.g., "Camera") into an array. 
+    let convrtArry = [...backupGadgets[backupGadgets.length -1]];
+    console.log(convrtArry);
+
+    //5️⃣ Create a function showTop3() that takes 3 items from any array.
+  function showTop3(array){
+    return [...array].slice(0,3);
+  };
+  console.log(showTop3(backupGadgets));
+
+  //6️⃣ Destructure with rest
+  let [first, ...rest] = [...backupGadgets];
+  console.log(` first gadget: ${first}`);
+//Display all gadgets using .join(" 📱 ")
+console.log("All Gadgets:");
+console.log(backupGadgets.join(" 📱 "));
+  //7️⃣ Create Two Objects.
+
+ let productInfo = { name: "Phone", price: 999};
+
+let productStock = { stock: 50, supplier: "Samsung"};
+//8️⃣ Merge both objects.
+let productDetails = {...productInfo, ...productStock};
+console.log(productDetails);
+
+//9️⃣ Copy Object.
+let productDetailsCopy = {...productDetails};
+productDetailsCopy.color = "Black";
+console.log(productDetailsCopy);
+
+//Print all object properties using Object.entries() and a loop.
+
+
+console.log(" Product Info:")
+for (let [key, value] of Object.entries(productDetailsCopy)) {
+  if (key === 'price') {
+    console.log(`${key}: $${value}`);
+  } else {
+    console.log(`${key}: ${value}`);
+  }
+}
+  </script>
+</body>
+</html>

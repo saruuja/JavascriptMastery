@@ -167,4 +167,34 @@ Objects can contain arrays as properties. We need to display each item in differ
     console.log(`${key}: ${value}`);})
 ```
 
-📌 3️⃣ Displaying Everything (Object + Nested Object + Array)
+📌 3️⃣ Displaying Everything (Object + Nested Object + Array).
+
+We can use a combination of methods to display everything. We can use Object.entries() to loop through 
+the nested object and then use .join() or .forEach() to display the array. Here is an example: 
+
+```js
+let student = { 
+  name: "John",
+  age: 20,
+  address: {
+    street: "123 Main St",
+    city: "New York",
+    country: "USA",
+  },
+  hobbies: ["reading", "swimming", "coding"],
+  };
+
+console.log('student:')
+Object.entries(student).forEach(([key, value]) => {
+  if (typeof value === 'object') { // Check if value is an object 
+  console.log(`${key}:`)
+  Object.entries(value).forEach(([nestedKey, nestedValue]) => { // Loop through nested object 
+  console.log(`  ${nestedKey}: ${nestedValue}`); // Display nested object properties
+  })
+  } else if (Array.isArray(value)) { // Check if value is an array
+  console.log(`${key}: ${value.join(', ')}`); // Display array items 
+  } else { // If value is not an object or array, display it as is 
+  console.log(`${key}: ${value}`); // Display value as is 
+  }
+
+});

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> "higher-order" or "callback" </title>
+</head>
+<body>
+  <script>
+    //normal function
+/*     function sayHi(){
+      console.log("Hi");
+    }
+    // run the function
+    sayHi();
+    // another function
+    function greetUser( callback ){
+      console.log("starting.....");
+      callback();
+      console.log("ending.....");
+    }
+    greetUser(sayHi); */
+
+    // function whenUserLogsIn.
+    function whenUserLogsIn(afterLogin){
+      console.log("User logged in");
+      afterLogin();// call the callback function 
+    }
+  
+  whenUserLogsIn(function(){
+    console.log("Show user profile");
+  });
+  //or 
+  whenUserLogsIn(function(){
+    console.log("Welcome to the dashboard");
+  });
+
+  
+  </script>
+</body>
+</html>

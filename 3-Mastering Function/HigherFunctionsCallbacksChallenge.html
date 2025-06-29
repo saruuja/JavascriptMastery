@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🚀 CHALLENGE: Student Message Generator</title>
+</head>
+
+<body>
+  <script>
+    /*  //function generate a message
+     function generateMessage(name , messageFn){
+       //use map()
+       return messageFn(name); 
+ 
+     }
+     // function to get a random message.
+     function reminderMessage(name) {
+       return "Hello, " + name + "! Don't forget to do your homework!";
+     };
+     // function to get a random message.
+    function congratsMessage(name) {
+       return `Congrats, ${name}! You passed the test!`;
+     };
+     // disply
+     console.log(generateMessage("Sara", reminderMessage));
+     // call 
+     console.log(generateMessage("John", congratsMessage)); */
+
+
+    //🧱 Step-by-Step: Define Student List First, Then Use It
+
+    //✅ Step 1: Define the array at the top
+    let student = ["Maxamad", "Amina", "Ali", "Sara", "John", "Jane", "Bob"];
+
+    // ✅ Step 2: Define your higher-order function + message callbacks.
+    function generateMessage(name, messageFn) {
+      // messageFn is a callback function
+      return messageFn(name);
+
+    };
+    // Callback: reminder message
+    function reminderMessage(name) {
+      return `Hello, ${name}! Don't forget to do your homework!`;
+    }
+
+    // Callback: congrats message
+    function congratsMessage(name) {
+      return `Congrats, ${name}! You passed the test!`;
+    };
+  //  ✅ Step 3: Use the students array in a loop.
+  student.forEach((student) => { 
+    // reminder message.
+    console.log(generateMessage(student, reminderMessage));
+  })
+
+
+
+
+  /* ✅ Scenario:
+You have a list of students, but only some of them passed the test.
+You want to:
+
+Send a congrats message to students who passed
+
+Send a reminder message to the rest */
+
+/* 🧱 Step-by-Step Example:
+ Step 1: Student list with pass/fail info
+ code */
+const students = [
+  { name: "Maxamad", passed: true },
+  { name: "Amina", passed: false },
+  { name: "Ali", passed: true },
+  { name: "Fatima", passed: true },
+  { name: "Hassan", passed: false }
+];
+//Now each student is an object with:
+
+//name → string
+
+//passed → true or false
+
+//Step 2: Message functions, code
+function generateMessage(name, messageFn) {
+  return messageFn(name);
+}
+
+function congratsMessage(name) {
+  return `🎉 Congrats, ${name}! You passed the test!`;
+}
+
+function reminderMessage(name) {
+  return `📚 Hello, ${name}. Don’t forget to study harder next time.`;
+}
+//Step 3: Loop through students and send the correct message
+//Using for...of or .forEach():
+
+students.forEach(function(student) {
+  if (student.passed) {
+    console.log(generateMessage(student.name, congratsMessage));
+  } else {
+    console.log(generateMessage(student.name, reminderMessage));
+  }
+});
+//🧾 Output:
+
+/* 🎉 Congrats, Maxamad! You passed the test!
+📚 Hello, Amina. Don’t forget to study harder next time. */
+
+//You loop over each student object
+
+//Use if (student.passed) to check their result
+
+//Based on that, you choose the message function to pass to generateMessage
+
+//🧠 Bonus Tip:
+//This pattern is real-world logic you’ll use in:
+
+//Emails to users
+
+//Report cards
+
+//Notification systems
+
+//Reward systems in apps
+  </script>
+</body>
+
+</html>

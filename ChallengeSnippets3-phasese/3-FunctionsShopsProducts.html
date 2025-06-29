@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🏪 Shops / Products</title>
+</head>
+<body>
+  <script>
+    //**Challenge:** 🔴 Hard – 🏪 Shops / Products
+    function createProduct(name, price) {
+      return{
+        getName: () => name,
+        getPrice: () => price
+      }
+    }
+    // use the function
+    // create Empty  product storage.
+    let products = [];
+    products.push(createProduct("Apple", 1.00));
+    products.push(createProduct("Banana", 0.50));
+
+    // print the products
+    console.log(`${products[0].getName()}, $${products[0].getPrice().toFixed(2)}`);
+    console.log(`${products[1].getName()}, $${products[1].getPrice().toFixed(2)} `);
+  </script>
+</body>
+</html>

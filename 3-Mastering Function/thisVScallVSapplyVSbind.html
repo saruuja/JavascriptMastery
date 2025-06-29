@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Understanding this, call(), apply(), and bind()</title>
+</head>
+<body>
+  <script>
+    // Function.
+    const person = {
+      name: "Zahuur",
+      sayHello: function(){
+        console.log(`Hello, my name is ${this.name}!.`);
+      }
+    };
+    // Call() method.
+    person.sayHello();
+
+    //move the function out of the object
+    const greet = person.sayHello;
+    greet();// ❌ this is now undefined or global (not person!) 
+    //why: because we moved the function out of the object, so this is now the global object (window in browser, global in node.js)
+
+    // 
+    const users = [
+ { name: "Amina"},
+ { name: "Zahur"},
+ { name: "Khalid"},
+ { name: "Ali"},
+
+  ];
+
+
+
+  function sayHello() {
+    console.log("Hi, I'm " + this.name);
+  };
+  
+
+  //call
+  sayHello.call(users[3]); // Hi, I'm Ali
+
+  // or if I want to call all of them
+  users.forEach(function(user){
+    sayHello.call(user);
+  })
+  </script>
+</body>
+</html>

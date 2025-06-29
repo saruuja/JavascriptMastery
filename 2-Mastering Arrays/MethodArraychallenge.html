@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>methods Challenge</title>
+</head>
+
+<body>
+  <script>
+    //use multiple methods
+    let products = [
+      { name: "Laptop", price: 1000, inStock: true },
+      { name: "Phone", price: 500, inStock: false },
+      { name: "Smart-Watch", price: 850, inStock: true },
+      { name: "Tablet", price: 750, inStock: false },
+      { name: "Mini-Tablet", price: 580, inStock: true },
+    ];
+    //Sort the products by price descending
+    let sortProduct = products.sort(((a, b) => b.price - a.price))
+    //Display all product name.
+    console.log("Product List:");
+    sortProduct.forEach(function (Product, index) {
+      console.log(` ${index + 1}. ${Product.name.toUpperCase()} - $${Product.price}`);
+    });//Create a list of product names in UPPERCASE (map).
+
+
+    //all products in stock (filter).
+    let productInstock = products.filter(avaliableInstok => avaliableInstok.inStock === true)
+    console.log("🛒 all products in stock");
+    productInstock.forEach(function (prdctname, index) {
+      const letter = String.fromCharCode("A".charCodeAt(0) + index); // Convert index to letter  
+      console.log(`${letter}. ${prdctname.name}`);
+    });
+    //total price of all products that are in stock (reduce).
+    console.log("💰 Total Price of all products :")
+    let totalproduct = productInstock.reduce((acc, num) => acc + num.price, 0);
+    console.log(` $${totalproduct}`);
+
+    //Display how many products are available using .length
+    console.log(`📌 Number of available products: ${productInstock.length}`)
+
+    //most expensive in-stock product
+    let mostExpnsv = sortProduct[0]; // Already sorted, so first is the highest
+    console.log("💎 Most Expensive In-Stock Product:");
+    console.log(`.${mostExpnsv.name} ~ price is $${mostExpnsv.price}`);
+
+
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Closures JavaScript</title>
+</head>
+<body>
+  <script>
+/* //🧪 Challenge 1: Secret Locker.
+function createLocker(secret){
+
+  return function(){
+    console.log(`Hello , ${secret}!`);
+}
+};
+const locker = createLocker("this 🗝️ is the key of our secret locker");
+locker(); */
+
+//✅ Improved Version:
+// 🔒 Closure-based Secret Locker
+function createLocker(secret) {
+  // "secret" is now protected inside this scope
+
+  return {
+    reveal: function () {
+      return `🗝️ Secret: ${secret}`;
+    }
+  };
+}
+
+// 🎯 Create a locker with a secret message
+const locker = createLocker("This is the key to the treasure.");
+
+// ✅ Access secret using reveal() method
+//console.log(locker.reveal()); // 🗝️ Secret: This is the key to the treasure.
+
+// ❌ Try to access the secret directly
+//console.log(locker.secret); // undefined (protected)
+
+
+//🧪 Challenge 2: Multiplier Factory
+
+function createMultiplier(factor){
+  return function(number){
+    return number * factor;
+  }
+};
+//
+const double = createMultiplier(2);
+const triple = createMultiplier(3);
+// then use the functions
+console.log(`The double of 5 is: ${double(5)}`); 
+console.log(triple(5)); // 15
+  </script>
+</body>
+</html>

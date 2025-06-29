@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Changing Styles </title>
+</head>
+<style>
+.card{
+  padding: 1rem;
+  border: 1px solid #ccc;
+  margin: 1rem;
+  transition: background 0.3s;
+}
+
+.dark-mode {
+  background-color: #1c1c1c;
+  color: white;
+}
+.danger-Mode{
+  background-color: #ff0000;
+  color: #ccc;
+}
+
+
+/* nav */
+.nav {
+  background: white;
+  padding: 1rem;
+}
+
+.nav.dark {
+  background: #222;
+  color: white;
+}
+
+.nav ul {
+  list-style: none;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.nav.hide ul {
+  display: none;
+}
+
+</style>
+<body>
+
+
+<nav id="mainNav" class="nav">
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Projects</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+
+<button id="themeBtn">Toggle Dark Mode</button>
+<button id="menuBtn">Toggle Menu</button>
+
+
+
+<div id="profileCard" class="card">
+  <h2>Sara Mohamed</h2>
+  <p>Frontend Developer</p>
+</div>
+
+
+<button id="highlightBtn">Highlight</button>
+<button id="toggleThemeBtn">Toggle Dark Mode</button>
+
+<div id="cardDanger" class="card">
+  <h2>alert</h2>
+  <p>This is a Danger zone</p>
+</div>
+<button id="toggleBtn">Toggle Danger Mode</button>
+  <script src="3-ChangingStyles.js"></script>
+</body>
+</html>

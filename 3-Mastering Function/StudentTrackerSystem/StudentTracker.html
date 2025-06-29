@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🧪 Final Challenge: “Student Tracker System”</title>
+</head>
+
+<body>
+
+<script>
+  // ✅ 1. Closure function (Hide students ID)
+  function protectingStudentData(name, id, scores, city, status) {
+    return {
+      getName: () => name,
+      getId: () => id,
+      getScores: () => scores,
+      getCity: () => city,
+      getStatus: () => status
+    };
+  }
+
+  // ✅ 2. List student data using closure
+  const sara = protectingStudentData("Sara", "S101", [85, 92, 88], "Muqdisha", "passed");
+  const ali = protectingStudentData("Ali", "S102", [65, 70, 58], "Berbera", "failed");
+  const khalid = protectingStudentData("Khalid", "S103", [90, 95, 91], "Kismayo", "passed");
+  const layla = protectingStudentData("Layla", "S104", [76, 82, 79], "Borama", "passed");
+  const mohamed = protectingStudentData("Mohamed", "S105", [88, 92, 89], "Hargeisa", "passed");
+  const amina = protectingStudentData("Amina", "S106", [45, 50, 48], "Jowhar", "failed");
+
+  let students = [sara, ali, khalid, layla, mohamed, amina];
+// ✅ Function (Name Capitalizer)
+
+  // ✅ 3. Function Declaration (Greeting)
+  function greeting(name) {
+    console.log(`Hello, ${name}! Welcome to the new semester!`);
+  }
+
+  console.log("%c🎓 Welcome to College! Let's 📚 Learn Together 👋", "color: #87CEEB; font-weight: bold;");
+
+  students.forEach(student => {
+    
+  });
+
+  // ✅ 4. Higher-Order Function (Message sender)
+  function sendAMessage(name, messageFn) {
+    return messageFn(name);
+  }
+
+  function congrats(name) {
+    return `🎉 Congrats, ${name}! You passed the test!`;
+  }
+
+  function reminder(name) {
+    return `📣 Reminder, ${name}! You failed the test. Don’t forget to 📚 study harder next time.`;
+  }
+
+  console.log("%c💬 Message: to the Exam result 🎓📚:", "color: #87CEEB; font-weight: bold;");
+  students.forEach(student => {
+    const { getName, getStatus } = student;
+    const message = getStatus() === "passed"
+      ? sendAMessage(getName(), congrats)
+      : sendAMessage(getName(), reminder);
+    console.log(message);
+  });
+
+  // ✅ 5. Pure Function (Calculate Average)
+  function calculateAverage(scoresArray) {
+    return scoresArray.reduce((a, b) => a + b, 0) / scoresArray.length;
+  }
+
+  console.log("📊 Average Score:");
+  students.forEach(student => {
+    const { getName, getScores } = student;
+    console.log(`${getName()}'s average score is ${calculateAverage(getScores()).toFixed(2)}`);
+  });
+
+  // ✅ 6. Show Student Info (with destructuring)
+  function showStudent(student) {
+    const { getName, getId, getScores, getCity, getStatus } = student;
+    console.log(
+      `Student info: Name is: ${getName()}, ID: ${getId()}, City: ${getCity()}, Status: ${getStatus()}`
+    );
+  }
+
+  showStudent(students[0]); // Show first student
+
+  // ✅ 7. Function Expression (Farewell)
+  const farewell = function(name) {
+    console.log(`Goodbye, ${name}! Have a great summer!`);
+  };
+
+  console.log("%c👋The season has come to a close. Thank you for being part of the journey. 🌅 Until next time!", "color: #FFFF00; font-weight: bold;");
+  students.forEach(student => {
+    farewell(student.getName());
+  });
+
+  // ✅ 8. this + bind() Practice (Teacher object)
+  const teacher = {
+    name: "Mr. Geedi Jamac",
+    subject: "Math",
+    yearsOfExperience: 10,
+    city: "Qardho",
+    getBio: function() {
+      console.log(`My name is ${this.name}, I teach ${this.subject}, I have "${this.yearsOfExperience}" years of experience, and I'm from ${this.city}, Somalia.`);
+    }
+  };
+
+  console.log("👨‍🏫 Teacher's Bio:");
+  teacher.getBio(); // ✅ Normal call
+
+  const teacherInfo = teacher.getBio;
+  teacherInfo(); // ❌ this is lost
+
+  const teacherInfoBind = teacher.getBio.bind(teacher);
+  teacherInfoBind(); // ✅ this is fixed
+
+  // ✅ 9. Arrow Function (Name Capitalizer)
+/*   const capitalize = name => name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+
+  console.log("🧠 Capitalized Names:");
+  students.forEach(student => {
+    console.log(capitalize(student.getName()));
+  }); */
+
+  // ✅ 10. Optional IIFE — Auto-init dashboard
+  (() => {
+    console.log("%c🚀 Initializing Dashboard...", "color: #00FA9A; font-weight: bold;");
+    students.forEach(student => {
+      const { getName, getScores, getStatus } = student;
+      const average = calculateAverage(getScores()).toFixed(2);
+      console.log(`📌 ${getName()} — Status: ${getStatus()}, Avg Score: ${average}`);
+    });
+    console.log("%c✅ Dashboard is ready!", "color: #00FA9A; font-weight: bold;");
+  })();
+</script>
+
+</body>
+
+</html>

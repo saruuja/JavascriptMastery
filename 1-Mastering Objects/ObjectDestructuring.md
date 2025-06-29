@@ -33,7 +33,7 @@ let user = {
 // Destructure the object
 let { name, age, country } = user;
 
-console.log(name, age, country); // Ali 25 Somalia
+console.log(`Name is ${name}, Age - ${age} years old, from ${country}.`); // Name is Ali, Age - 25 years old, from Somalia.
 
 ```
 🔥 Why is this better?

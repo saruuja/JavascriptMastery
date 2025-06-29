@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Function Declaration VS Expression</title>
+</head>
+<body>
+  <script>
+    // Function Declaration
+    function addition(a, b){
+
+      return  a + b;
+      };
+      // display
+      console.log(`The result of addition ${a} and ${b} is: ${addition(5, 7)}`);
+// Function Expression
+
+const EvenOddCheker = function (num) {
+  return num % 2 ? "Odd" : "Even";
+}
+console.log(`Your number is an "${EvenOddCheker(5)}" number.`);
+
+// Function delaration
+function greeting(name) {
+  return `Hello, ${name}!`;
+};
+console.log(greeting("Maxamad"))
+  </script>
+</body>
+</html>

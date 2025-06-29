@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NestedArrays</title>
+</head>
+
+<body>
+  <!--  displaying this in a webpage next using HTML & JS together? -->
+  <h2>🌍 Travel Guide</h2>
+<div id="travelInfo">
+</div>
+<p id="travelCity"></p>
+  <script>
+let travelGuide = {
+  country: "Japan", // name of the country
+  cities: [
+    {
+      name: "Tokyo",
+      places: ["Shibuya Crossing", "Tokyo Tower", "Ueno Park"]
+    },
+    {
+      name: "Kyoto",
+      places: ["Fushimi Inari Shrine", "Arashiyama Bamboo Grove"]
+    }
+  ]
+};
+// Display the country name.
+console.log(`🌍Country: ${travelGuide.country},`)
+// console.log() is trying to access each item manually by index,
+/* console.log(`🏙️City: ${travelGuide.cities[0].name},
+ - ${travelGuide.cities[0].places[0]}
+ - ${travelGuide.cities[0].places[1]}
+ - ${travelGuide.cities[0].places[2]}
+
+🏙️City: ${travelGuide.cities[1].name},
+ - ${travelGuide.cities[1].places[0]}
+ - ${travelGuide.cities[1].places[1]}
+ - ${travelGuide.cities[1].places[2]}
+
+`); */
+
+//✅ Fixed & Dynamic Display (using loops):
+
+//🏙️ Loop through each city
+travelGuide.cities.forEach(city =>{
+  console.log(`\n🏙️ City: ${city.name}`);
+
+  // Loop through places
+  for(let place of city.places){
+    console.log(`- ${place}`)
+  }
+});
+
+//Data nicely on a web page using basic HTML and JavaScript.
+
+// 1 // Select the div where we want to display data
+let travelData = document.querySelector("#travelInfo");
+let trvlCity = document.querySelector("#travelCity");
+// Display country
+travelData.innerHTML = `<h3> Country: ${travelGuide.country} </h3>`;
+
+//Loop through cities and display city + places
+
+travelGuide.cities.forEach(city =>{
+ trvlCity.innerHTML += `<h4> 🏙️ City: ${city.name}</h4>`;
+
+  // Display place
+  /* for(let place of city.places){
+    trvlCity.innerHTML += `<p> -${place} </p>`
+  }; */
+
+  // or use map() and Join()
+  trvlCity.innerHTML += `<ul> places to Visit:${city.places.map(place => `<li>${place}</li>`).join("")}</ul>`;
+
+});
+
+
+  </script>
+</body>
+</html>

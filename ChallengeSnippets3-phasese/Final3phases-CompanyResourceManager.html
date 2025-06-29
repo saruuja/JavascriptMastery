@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Company Resource Manager</title>
+</head>
+<body>
+  <script>
+    // # The theme is based on **Companies / Employees / Tools**
+  //## step 1.  Function for Employees (Closures). 
+    function createEmployee(name, role, salary){
+      return{
+        getName: () => name,
+        getRole: () => role,
+        getSalary: () => salary,
+      }
+    };
+  //## step 2. Store Employees in an Array.
+  let employees = [
+    createEmployee('Ali', 'Software Engineer', 100000),
+    createEmployee('Axmed', 'Data Scientist', 120000),
+    createEmployee('khalid', 'Data Engineer', 110000),
+    createEmployee( 'Zahuur', 'DevOps Engineer', 130000 ),
+    createEmployee('Sara', 'Frontend Developer', 90000 ),
+  ]
+  //## step 3. Add a Tool Management System (Objects in Array).
+  let tools =[
+    {toolName: 'Smartwatch', assignedTo: 'Ali'},
+    {toolName: 'Desktop', assignedTo: 'Axmed'},
+    {toolName: 'Tablet', assignedTo: 'khalid'},
+    {toolName: 'Smartphone', assignedTo: 'Zahuur'},
+    {toolName: 'Laptop', assignedTo: 'Sara'},
+  ]
+  //## step 4. Build a Pure Function to Calculate Average Salary
+function calculateAverageSalary(employees) {
+  let total = employees.reduce((sum, emp) => sum + emp.getSalary(), 0);
+  return (total / employees.length).toFixed(2);
+}
+  //## step 5. Display Info for Each Employee
+ employees.forEach(disply =>{
+    console.log(`Employee: ${disply.getName()} - Role: ${disply.getRole()} - Salary: $${disply.getSalary().toFixed(2)}`);
+  })
+  //## step 6. Filter Tools by Employee
+function getToolsByEmployee(name, tools){
+//It should return a list of tools assigned to that employee
+let filteredTools = tools.filter(tool => tool.assignedTo === name);
+return filteredTools;
+}
+console.log( getToolsByEmployee('Zahuur', tools) );
+
+  // ## step 7. Add a Method and Bind It
+  let emplo = { 
+    name:'John', 
+    role:'Manager',
+    salary: 150000,
+  introduce: function(){
+    console.log( `Hi, I'm ${this.name} and I work as a ${this.role}`);
+  }
+}
+emplo.introduce();
+
+let Intro = emplo.introduce;
+Intro();
+  //### fix and use bind
+  let IntroBind = emplo.introduce.bind(emplo);
+  IntroBind();
+
+  //### ✅ Bonus (Optional) use Use an IIFE.
+(() => {
+  console.log('🔧 Company System Loaded – Employee Tools Ready')
+  })();
+  </script>
+</body>
+</html>

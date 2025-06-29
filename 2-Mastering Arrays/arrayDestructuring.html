@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Array Destructuring</title>
+</head>
+<body>
+  <h2>Tech Gadgets</h2>
+  <div id="TechInfo"></div>
+  <script>
+    //array
+    let TechGadgets = [
+  "Electronics",
+  ["Smartwatch", "Mobile", "Headphones"],
+  ["Laptop", "Tablet"],
+  ["Gaming Console", "Smart TV"]
+];
+
+
+    //Displaying the array
+    let [category, communication, work, entertainment] = TechGadgets;
+
+//
+ /*  console.log(`Category: ${category}`);
+  console.log ("Communication Items:",communication.join("| "));
+  console.log( "Work Items:",work.join(", "));
+  console.log( "Entertainment Items:",entertainment.join(", ")); */
+  
+  let gadgets = ["Electronics", ["Mobile", ["Tablet", "Smart TV"]]];
+
+  console.log(gadgets.flat(3).join(", "))
+  </script>
+</body>
+</html>

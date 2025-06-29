@@ -82,7 +82,7 @@
       //console.log(product)
 
       //📌 2️⃣ Extracting Object Properties Dynamically ✔ Using console.log() with String Interpolation
-      console.log(`Product Name: ${product.name}\nPrice: ${product.price}\nCategory: ${product.category}\nStock: ${product.stock}`);
+      //  console.log(`Product Name: ${product.name}\nPrice: ${product.price}\nCategory: ${product.category}\nStock: ${product.stock}`);
       // or Instead of printing the whole object, we can display each property manually.
       // console.log(` Product Name: ${product.name}`);
       // console.log(` Price: ${product.price}`);
@@ -92,14 +92,42 @@
       //📌 3️⃣ Best Practices: Looping Over Objects
       //✔ 3.1 for...in Loop
       for (let key in product) {
-        console.log(`${key}: ${product[key]}`);
+        //  console.log(`${key}: ${product[key]}`);
       }
       //✔ 3.2 Object.keys() Method
-      console.log(Object.keys(product));
+      // console.log(Object.keys(product));
       //✔ 3.3 Object.values() Method
-      console.log(Object.values(product));
+      //console.log(Object.values(product));
       //✔ 3.4 Object.entries() → Get Key-Value Pairs
-      console.log(Object.entries(product));
+      // console.log(Object.entries(product));
+
+      //📌 3️⃣ Displaying Everything (Object + Nested Object + Array).
+      let student = {
+        name: "John",
+        age: 20,
+        hobbies: ["reading", "swimming", "coding"],
+        address: {
+          street: "123 Main St",
+          city: "New York",
+          country: "USA",
+        }
+      };
+      //display for..in
+      for (let key in student) {
+        /* console.log(`${key}: ${student[key]}`); */
+      }// the proplem is this way is not good for nested objects .
+      //display nested object using object.entries()
+      for (let [key, value] of Object.entries(student)) {
+        if (typeof value === 'object') {
+          console.log(`${key}:`)
+          for (let [nestedKey, nestedValue] of Object.entries(value)) {
+            console.log(`  ${nestedKey}: ${nestedValue}`);//Display nested object properties
+          }
+        }
+        else {
+          console.log(`${key}: ${value}`)//Display non-object, non-array values
+        }
+      }
 
     </script>
 
@@ -146,6 +174,7 @@
     }) */
 
  -->
+
     <script src="DisplayingObjectsRealWorld.js"></script>
 </body>
 

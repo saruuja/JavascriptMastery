@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>💼 Companies / Employees</title>
+</head>
+<body>
+  <script>
+    //**Challenge:** 🟡 Medium – 💼 Companies / Employees
+    function processEmployee(name, callback){
+      return callback(name);
+    }
+  // welcome message
+  function welcomeEmail(name){
+    console.log( `Welcome, ${name}! to our company.`);
+  };
+  //Orientation Reminder
+  function orientationReminder(name){
+    console.log(`Hi, ${name}! Please join us for the orientation session.`);
+  };
+  //use 
+  processEmployee( "Yuusuf", welcomeEmail );
+  processEmployee( "Jaamac", orientationReminder );
+  </script>
+</body>
+</html>

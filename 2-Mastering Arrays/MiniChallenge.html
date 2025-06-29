@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Map() flat() forEach()</title>
+</head>
+
+<body> 
+  <script>
+    //Organize Travel Destinations
+    let travelPlans =  [
+      { type: "Beach", destinations: ["Maldives", ["Bali", "Hawaii"]] },
+      { type: "City", destinations: [["Paris", "New York"], "Tokyo"] },
+      { type: "Nature", destinations: ["Iceland", ["Bali", "Alps"]] }
+    ];
+    let listDestination = travelPlans.map(list => list.destinations).flat(3);
+    let setDuplicates = Array.from(new Set(listDestination));
+  setDuplicates.forEach(function(name, index){
+    console.log(`${index +1}. ${name}`)
+  })
+  
+
+console.log(`✅ Total Unique Destinations: ${setDuplicates.length}`)
+
+/* 
+💡 Bonus Tip (Optional Improvement):
+You could combine .flat() and Set more efficiently like this:
+
+let setDuplicates = [...new Set(travelPlans.map(list => list.destinations).flat(Infinity))];
+
+💬 Infinity ensures it flattens no matter how deep the nesting is.
+ */
+  </script>
+</body>
+
+</html>

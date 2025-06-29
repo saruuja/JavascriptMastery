@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🔥 Practice Challenge: Filter Passed Students</title>
+</head>
+<body>
+  <script>
+    // Define the students array
+    let students = [
+  { name: "Ali", score: 45 },
+  { name: "Sara", score: 85 },
+  { name: "Khalid", score: 72 },
+  { name: "Nora", score: 58 },
+  { name: "Zeinab", score: 95 }
+];
+// Define the function to filter passed students
+let PassedStuden = students.filter(student => student.score >= 60);
+// display
+PassedStuden.forEach( student => console.log(student.name));
+/* 💡 Bonus Tip (Optional Improvement):
+If you want to make it slightly more reusable or real-world ready:
+
+function getPassedStudents(students) {
+  return students.filter(student => student.score >= 60);
+}
+
+let passed = getPassedStudents(students);
+passed.forEach(student => console.log(student.name));
+ */
+</script>
+</body>
+</html>

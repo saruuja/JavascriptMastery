@@ -19,13 +19,14 @@
     // Rename variables while destructuring
     let { brand: carBrand, model: carModel, year: carYear, price: carPrice } = car;
 
-    console.log(`${carBrand}, $${carPrice}`);
+    console.log(`${carBrand}, $${carPrice}`);// Output: Toyota, $25000
 // spread operator
     let copyCar = { ...car };
-    console.log(copyCar);
+    console.log(copyCar);// Output: { brand: "Toyota", model: "Camry", year: 2022,
     // Merging Two Objects
     let carDetails = { color: "red", fuel: "petrol" }; // Define the second object
-    let mergedCar = { ...car, ...carDetails };
+    let mergedCar = { ...car, ...carDetails };// Merging two objects 
+    // Output: { brand: "Toyota", model: "Camry", year: 2022, price: 25000, color: "red", fuel: "petrol" }
 
     console.log(mergedCar);
   </script>

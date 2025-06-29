@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🏠 House / Furniture</title>
+</head>
+
+<body>
+  <script>
+    //**Challenge:** 🔴 Hard – 🏠 House / Furniture
+    function housFurniture(name, material, price) {
+      this.name = name;
+      this.material = material;
+      this.price = price;
+
+      this.getInfo = function () {
+        return `The ${this.name} is made of ${this.material} and cost of $${this.price}.`;
+      }
+
+    }
+    // Create two different furniture items
+    const chair = new housFurniture("Chair", "Wood", 75);
+    const table = new housFurniture("Table", "Glass", 200);
+    // OR Creating an empty array to store new furniture.
+    let furnitures = [];
+    furnitures.push(new housFurniture("Lazy Sofa Chair", "velvet", 42));
+    furnitures.push(new housFurniture("Storage Cabinet with LED Light", "Metal", 78));
+
+    // Accessing and using methods
+    console.log(furnitures[0].getInfo());
+    console.log(furnitures[1].getInfo());
+    console.log(chair.getInfo());
+    console.log(table.getInfo());
+
+
+  // Display all of them in the store
+  console.log(" 🏠 House / Furniture");
+  furnitures.forEach(Furniture =>{
+    console.log(`${Furniture.getInfo()}`)
+  })
+
+  </script>
+</body>
+
+</html>
+<!-- 
+1. name "Lazy Sofa Chair"
+   material : velvet
+   price: 42
+2. name: "Storage Cabinet with LED Light"
+   material: Metal
+   price: 78
+ -->

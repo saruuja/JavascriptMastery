@@ -69,7 +69,9 @@ let account2 = new BankAccount("Ali", 5000);
 
 console.log(account1.owner); // Sara
  console.log(account2.balance); // 5000
-
+// or USE des ctructuring
+let { owner, balance } = account1;
+console.log(owner , balance); // Sara 10000
  ✔ The new keyword creates a new object each time we call the constructor.
 ✔ Now, we can create as many bank accounts as we want!
 ```

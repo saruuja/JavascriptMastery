@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🚀 FINAL CHALLENGE: "Smart Assistant Task Manager"</title>
+</head>
+
+<body>
+  <script>
+    /* 
+    🎯 Scenario:
+You’re building a smart assistant (like Siri or Google Assistant) that can:
+🔊 Announce tasks for users
+🛠 Perform tasks with input data
+🕒 Schedule tasks to run later
+     */
+  let tasks = [
+    {name: "Ali"},
+    {name: "Leyla"},
+    {name: "Aygun"},
+    {name: "Shamsa"}
+  ];
+    // announce Task.
+    function announceTask(task) {
+      console.log(`${this.name} is performing task: ${task}`);
+    };
+
+    // do calculation
+    function doCalculation(num1, num2) {
+      console.log(`${this.name} calculated result: ${num1 + num2}`);
+    };
+    // schedule task
+    let user = {
+      name: "Shamsa",
+      reminder: function () {
+        console.log(`🔔 Reminder for ${this.name}: Stay focused and take a break!`);
+      }
+    };
+
+   // GIVE Tasks
+  
+    announceTask.call(tasks[0], "Organizing files");
+    announceTask.call(tasks[2], "Backing up data");
+    doCalculation.apply(tasks[1], 5, 7);
+    doCalculation.apply (tasks[3], 10, 15);
+
+    const userReminder = user.reminder;
+    //userReminder();
+
+    //fix using bind()
+    const boundReminder = user.reminder.bind(user);
+    boundReminder();
+
+
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🌍 Places / Travel</title>
+</head>
+<body>
+  <script>
+    // **Challenge:** 🔴 Hard – 🌍 Places / Travel
+    //destinations, each with a name and `visitorsPerYear`
+    const destinations = [
+      { name: "Paris", visitorsPerYear: 23.9 },
+      { name: "Tokyo", visitorsPerYear: 32.4 },
+      { name: "Sydney", visitorsPerYear: 4.5 },
+      { name: "Dubai", visitorsPerYear: 16.7 },
+      { name: "Cairo", visitorsPerYear: 13.3 },
+      { name: "Istanbul", visitorsPerYear: 13.1 },
+      { name: "Cape Town", visitorsPerYear: 3.4 },
+      { name: "Johannesburg", visitorsPerYear: 3.1 },
+      { name: "Marrakech", visitorsPerYear: 2.8 },
+    ];
+
+    // sort to arrange them from most to least visited.
+    let sortDestination = destinations.sort((a, b) =>{
+      return b.visitorsPerYear - a.visitorsPerYear
+    });
+    //Display
+    sortDestination.forEach((destination) =>{
+      console.log(`Destination: ${destination.name}, Visitors: ___${destination.visitorsPerYear} million visitors per year`);
+    })
+
+  </script>
+</body>
+</html>
